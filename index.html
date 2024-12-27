@@ -60,35 +60,46 @@
                             <a href="index.html" class="nav-item nav-link active">Home</a>
                             <a href="#order" class="nav-item nav-link">Order</a>
                             <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="cart.html" class="dropdown-item">Cart</a>
-                                    <a href="chackout.html" class="dropdown-item">Checkout</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div>
+                            
                             <a href="privacy.html" class="nav-item nav-link"> Terms of Use</a>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <div class="d-flex m-3 me-0">
+                            <a href="#" class="position-relative  my-auto">
+                                <i class="fa fa-shopping-bag fa-2x" id="cart-icon" data-quantity="0"></i> 
+                            </a>
                             
-                            <a href="#" class="position-relative me-4 my-auto">
-                                <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                            </a>
-                            <a href="#" class="my-auto">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
+                        </div>
+                        
+                        </div>
+                        <div class="cart">
+                            <h2 class="cart-title">Your Cart</h2>
+                            <div class="cart-content">
+                                <div class="cart-box">
+                                    <img src="img/puffpuff.jpg" class="cart-img"/>
+                                    <div class="detail-box">
+                                        <div class="cart-product-title">Puff Puff</div>
+                                        <div class="cart-price">£30</div>
+                                        <input type="number" name="" id="" value="1" class="cart-quantity"/>
+                                    </div>
+                                    <i class="fa-sharp-duotone fa-solid fa-trash  cart-remove"></i>
+                                </div>
+                               
+                                
+                                
+                            </div>
+                            <div class="total">
+                                <div class="total-title">Total</div>
+                                <div class="total-price">£ 0</div>
+                                                               
+                            </div>
+                            <button type="button" class="btn-buy">Pay </button>
+                            <i class="fa-solid fa-xmark" id="close-cart"></i>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
         <!-- Navbar End -->
-
-
+        
 
 
         <!-- Hero Start -->
@@ -131,24 +142,20 @@
         </div>
         <!-- Hero End -->
         <div class="container mb-5" id="order">
-            <div class="row">
+            <div class="row produts">
                 <h1>Featured Products</h1>
             </div>
             <div class="row">
             <div class="col-lg-4 col-md-4 mb-3">
                 <div class="product-box position-relative">
-                    <img src="img/d.jpg" alt="Plataian crisps" class="img-fluid">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgytG03T4WF1VmLUyu84uJU26v6G6ZS66sJw9DVSo344a4RMOc3GWNKu5xBD99x68yaZ9aDsO6h3w_c2mCP5g_dgCwcdCgtVL1bId1gS046U3qvUN7bgQclNXs0YFGw-yUgFhzoSACE415VII1OimH6_DYjVnA3kxEyOGNZOm5lE8jFrdnlrOileJPlrgn/s320/3.jpg" alt="Puff Puff" class="img-fluid">
                 </div>
-                <div class="icons_box">
-                    <button class="btn rounded-pilled"><i class="fa-solid fa-circle-minus"></i></button>
-                    <input type="text" class="form-control" placeholder="1" aria-label="1"  id="inputGroup-sizing-sm" maxlength="2" style="width: 50px;" aria-desc >
-                    <button class="btn rounded-pilled"><i class="fa-solid fa-circle-plus"></i></button>
-                </div>
+             
                 <div class="product-info mt-3">
                     <div class="product-name">
-                        <h3> Plaintain Crisps</h3>
+                        <h3> Puff Puff</h3>
                     </div>
-                    <div class="product-price">£<span>20</span></div>
+                    <div class="product-price"><span>Minimum Order 80 pieces</span><br> £<span>30</span></div>
                 </div>
                 <div class="cart-btn">
                     <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
@@ -158,18 +165,14 @@
             
             <div class="col-lg-4 col-md-4 mb-3">
                 <div class="product-box position-relative">
-                    <img src="img/f.jpg" alt="Pastries" class="img-fluid">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN-xNcWUoJKJvLhL7jzeQlrOmFt8xCgYl1n8TjksGXXtqjnfi4bWkalkcwDjPD5XkP97IPJ1UONQya5_CgXE722fWRNhsHahpW6CNgkhK4XcUfT4scPu9WoTIz_kHuwZeSaj4kxFcfEzr0GCUZNZViUdKDgbysZ_y43UFIePpo1YAHzOSTyaRXP3N5lP6M/s320/2.jpg" alt="Meat-Pie" class="img-fluid">
                 </div>
-                <div class="icons_box">
-                    <button class="btn rounded-pilled"><i class="fa-solid fa-circle-minus"></i></button>
-                    <input type="text" class="form-control" placeholder="1" aria-label="1"  id="inputGroup-sizing-sm" maxlength="2" style="width: 50px;" aria-desc >
-                    <button class="btn rounded-pilled"><i class="fa-solid fa-circle-plus"></i> </button>
-                </div>
+               
                 <div class="product-info mt-3">
                     <div class="product-name">
-                        <h3> Pastries</h3>
+                        <h3> Meat Pie</h3>
                     </div>
-                    <div class="product-price">£<span>20</span></div>
+                    <div class="product-price"><span>Minimum Order 20 pieces</span><br>£<span>2.00 each</span></div>
                 </div>
                 <div class="cart-btn">
                     <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
@@ -179,29 +182,78 @@
 
             <div class="col-lg-4 col-md-4 mb-3">
                 <div class="product-box position-relative">
-                    <img src="img/e.jpg" alt="Fruit Saladlass" img-fluid>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtjpRnpU3p9BXmdwHciBRmzdJ_MvTprwBcCPyScrI7AFc3lzZD_WoT9uEmLjDq3q7S5OWV8HtmAR7xBNaxsw8qgjCi0d_ZP89DM0CMariMv3JzhHF_alMk0PYhFnvPb9_Ysf2CX0YnmX1Pbnn0YCW3yuF01SCsHs3IxSc0kJT2GEnGLyaCwEi9D_mEqNWT/s320/1.jpg" alt="Buns" img-fluid>
                 </div>
-                <div class="icons_box">
-                    <button class="btn rounded-pilled"><i class="fa-solid fa-circle-minus"></i></button>
-                    
-                    <input type="text" class="form-control" placeholder="1" aria-label="1"  id="inputGroup-sizing-sm" maxlength="2" style="width: 50px;" aria-desc >
-                    <button class="btn rounded-pill"><i class="fa-solid fa-circle-plus"></i></button>
-                </div>
+                
                 <div class="product-info mt-3">
                     <div class="product-name">
-                        <h3> Fruits Salad and Platters</h3>
+                        <h3> Buns</h3>
                     </div>
-                    <div class="product-price">£<span>20</span></div>
+                    <div class="product-price"><span>Minimum Order 80 pieces</span><br>£<span>40</span></div>
                 </div>
                 <div class="cart-btn">
                     <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
                         Add to Cart</button>
                 </div>
+            
+            </div>
             </div>
 
-            
+            <div class="row">
+                <div class="col-lg-4 col-md-4 mb-3 mt-5">
+                    <div class="product-box position-relative">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWIISUGsR9TMbrovCokLmXR024tBUhxnZAx0zms-Py0fIiPlH8wZKM0353_Tv2zc1SgfxFKS5IjOMDeQ5GqX7mWzfA4ym2V_pZxO18e6u565MzoZA6orVytNdm7qjlc3FiCu9MIM7ECqlBonz4jj_r3odBfN8PD_6iP7Pq62EMfDEQWk3XEZPtxYc89F2a/s320/4.jpg" alt="Puff Puff" class="img-fluid">
+                    </div>
+                 
+                    <div class="product-info mt-3">
+                        <div class="product-name">
+                            <h3>Spring Rolls </h3>
+                        </div>
+                        <div class="product-price"><span>Minimum Order 20 pieces</span><br> £<span>1.50 per piece</span></div>
+                    </div>
+                    <div class="cart-btn">
+                        <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
+                            Add to Cart</button>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 mb-3 mt-5">
+                    <div class="product-box position-relative">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2iETQrFyyfpp0w_kpOBYPWap5w8Mh98Lhb87uwADSLpzkQUmx8VnrGVZDURvb3PP-BoWrT94N2gZD0WNlDBDOpSBuTv1UmmgHP6zjuVH3aFM8ap5uZAsgTxja5RHYqRpZIsvuOWr0Vnb7A0EDKeqPjWNaGc3CeF2ISIUw-W2oPEIt2ZGVyrSP5zwkHm9v/s320/5.jpg" alt="Puff Puff" class="img-fluid">
+                    </div>
+                 
+                    <div class="product-info mt-3">
+                        <div class="product-name">
+                            <h3> Chin Chin </h3>
+                        </div>
+                        <div class="product-price"><span>Minimum Order 4 litres</span><br> £<span>20</span></div>
+                    </div>
+                    <div class="cart-btn">
+                        <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
+                            Add to Cart</button>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 mb-3 mt-5">
+                        <div class="product-box position-relative">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguUrlP2WOVUDONFYhSu2CjVH0ZFCVz8m4gIn3r09DDtIwuX2tkgoWwAe6AGTt28NAFwf1TD24FpSBLi_z8yTffWZO7-0l1uG6IjVRY_X06EORKsjpinMy2dTEcc7QNvhyphenhyphenpEoZ6ltFHE5Ioy3FfVhIJB_Ipw1-rwXV22BtWJ3VhCxIw-ZqeSoQ-v-G823S5/s320/Untitled%20design.jpg" alt="Puff Puff" class="img-fluid">
+                        </div>
+                     
+                        <div class="product-info mt-3">
+                            <div class="product-name">
+                                <h3> Fruits Platter </h3>
+                            </div>
+                            <div class="product-price"><span>A large tray with max of 6 choice of fruits</span><br> £<span>50</span></div>
+                        </div>
+                        <div class="cart-btn">
+                            <button class="btn btn-secondary shadow-sm rounded-pill"><i class="fa-solid fa-cart-plus"></i> 
+                                Add to Cart</button>
+                        </div>
+                        </div>
+                    </div>
         </div>
-    </div>
+    
+        
     <!-- Call and email Section Start -->  
      <div class="container mt-5 text-center" id="contact">
         <div class="row">

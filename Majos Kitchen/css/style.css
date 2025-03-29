@@ -1,379 +1,657 @@
-<!DOCTYPE html>
-<html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Maajos Kitchen</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+*{
+    margin: 0;
+}
+/*** Spinner Start ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+ }
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+ #spinner.show {
+     transition: opacity .8s ease-out, visibility 0s linear .0s;
+     visibility: visible;
+     opacity: 1;
+ }
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/c0b5b754e1.js" crossorigin="anonymous"></script>
-        <!-- Libraries Stylesheet -->
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
-        </div>
-        <!-- Spinner End -->
+ .back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 99;
+}
+/*** Spinner End ***/
 
 
-        <!-- Navbar start -->
-        <div class="container-fluid fixed-top">
-            <div class="container topbar bg-blue d-none d-lg-block">
-                <div class="d-flex justify-content-between">
-                    
-                    
-                </div>
-            </div>
-            <div class="container px-0">
-                <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a class="navbar-brand" href="#">
-                        <img src="IMG_0432.jpg" alt="Bootstrap" width="30" height="24">
-                      </a>
-                    <a href="index.html" class="navbar-brand"><h1 class="text-secondary display-6">Tasty Culinary</h1></a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="#order" class="nav-item nav-link">Order</a>
-                            <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                            
-                            <a href="privacy.html" class="nav-item nav-link"> Terms of Use</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                            <a href="#" class="position-relative  my-auto">
-                                <i class="fa fa-shopping-bag fa-2x" id="cart-icon" data-quantity="0"></i> 
-                            </a>
-                            
-                        </div>
-                        
-                        </div>
-                        <div class="cart">
-                            <h2 class="cart-title">Your Cart</h2>
-                            <div class="cart-content"> 
-                            </div>
-                            <div class="total">
-                                <div class="total-title">Total</div>
-                                <div class="total-price">£ 0</div>
-                                                               
-                            </div>
-                            <button type="button" class="btn-buy">Pay </button>
-                            <i class="fa-solid fa-xmark" id="close-cart"></i>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
-        
+/*** Button Start ***/
+.btn {
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-sm-square {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-md-square {
+    width: 44px;
+    height: 44px;
+}
+
+.btn-lg-square {
+    width: 56px;
+    height: 56px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn.border-secondary {
+    transition: 0.5s;
+}
+
+.btn.border-secondary:hover {
+    background: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+}
+
+/*** Topbar Start ***/
+.fixed-top {
+    transition: 0.5s;
+    background: var(--bs-white);
+    border: 0;
+}
+
+.topbar {
+    padding: 20px;
+    border-radius: 230px 100px;
+}
+
+.topbar .top-info {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link a {
+    letter-spacing: 1px;
+}
+
+.topbar .top-link a small:hover {
+    color: var(--bs-secondary) !important;
+    transition: 0.5s;
+}
+
+.topbar .top-link a small:hover i {
+    color: var(--bs-primary) !important;
+}
+/*** Topbar End ***/
+
+/*** Navbar Start ***/
+.navbar .navbar-nav .nav-link {
+    padding: 10px 10px;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.navbar {
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        transition: .5s;
+        opacity: 0;
+    }
+}
 
 
-        <!-- Hero Start -->
-        <div class="container-fluid py-3 mb-3 hero-header">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-12 col-lg-7">
-                        <h1 class="mb-3 display-3 text-secondary">Welcome to Maajos Kitchen</h1>
-                        <p class="mb-5  text-primary">At Maajos Kitchen we are passionate about bringing
-                             delicious, home-made cuisine to your events and gatherings. As a home-based catering business, we 
-                             specialize in creating mouth-watering dishes that cater to public events, domestic gatherings, 
-                             and store supplies.
-                        </p>
-                     
-                    </div>
-                    <div class="col-md-12 col-lg-5">
-                        <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active rounded">
-                                    <img src="img/aa.jpg" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Yummies</a>
-                                </div>
-                                <div class="carousel-item rounded">
-                                    <img src="img/b.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Plantain Crisp</a>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Hero End -->
-         
-        <div class="container mb-5" id="order">
-            <div class="row produts">
-                <h1>Featured Products</h1>
-            </div>
-            <div class="row">
-            <div class="col-lg-4 col-md-4 mb-3">
-                <div class="product-box position-relative">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgytG03T4WF1VmLUyu84uJU26v6G6ZS66sJw9DVSo344a4RMOc3GWNKu5xBD99x68yaZ9aDsO6h3w_c2mCP5g_dgCwcdCgtVL1bId1gS046U3qvUN7bgQclNXs0YFGw-yUgFhzoSACE415VII1OimH6_DYjVnA3kxEyOGNZOm5lE8jFrdnlrOileJPlrgn/s320/3.jpg" alt="Puff Puff" class="img-fluid">
-                </div>
-             
-                <div class="product-info mt-3">
-                    <div class="product-name">
-                        <h3> Puff Puff</h3>
-                    </div>
-                    <div>   
-                        <p><span>Minimum Order 80 pcs</span></p>
-                    </div>
-                    <div class="product-price">£<span>30</span></div>
-                </div>
-                <div class="cart-btn">
-                    <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                        Add to Cart</button>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-4 mb-3">
-                <div class="product-box position-relative">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN-xNcWUoJKJvLhL7jzeQlrOmFt8xCgYl1n8TjksGXXtqjnfi4bWkalkcwDjPD5XkP97IPJ1UONQya5_CgXE722fWRNhsHahpW6CNgkhK4XcUfT4scPu9WoTIz_kHuwZeSaj4kxFcfEzr0GCUZNZViUdKDgbysZ_y43UFIePpo1YAHzOSTyaRXP3N5lP6M/s320/2.jpg" alt="Meat-Pie" class="img-fluid">
-                </div>
-               
-                <div class="product-info mt-3">
-                    <div class="product-name">
-                        <h3> Meat Pie</h3>
-                       
-                    </div>
-                   <div><span>Minimum Order 20 pieces (£2.00 each).</span></div>
-                    <div class="product-price mt-0">
-                       
-                        £<span>40</span></div>
-                </div>
-                <div class="cart-btn">
-                    <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                        Add to Cart</button>
-                </div>
-            </div>
+
+/*** Navbar End ***/
+
+/*** Hero Header ***/
+.hero-header {
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/hero-img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    border: 1px solid var(--bs-white);
+    background: var(--bs-primary);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-next {
+    margin-right: 20px;
+}
+
+.carousel-control-prev {
+    margin-left: 20px;
+}
+
+.page-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/page-header-img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icons_box {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
+.form-control {
+    width: 50px; /* Set the width of the input field */
+    margin: 0 5px; /* Add some margin for spacing */
+}
+.product-box{
+    margin-bottom: 15px;
+}
 
 
-            
-            <div class="col-lg-4 col-md-4 mb-3">
-                <div class="product-box position-relative">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtjpRnpU3p9BXmdwHciBRmzdJ_MvTprwBcCPyScrI7AFc3lzZD_WoT9uEmLjDq3q7S5OWV8HtmAR7xBNaxsw8qgjCi0d_ZP89DM0CMariMv3JzhHF_alMk0PYhFnvPb9_Ysf2CX0YnmX1Pbnn0YCW3yuF01SCsHs3IxSc0kJT2GEnGLyaCwEi9D_mEqNWT/s320/1.jpg" alt="Buns" class="img-fluid">
-                </div>
-                
-                <div class="product-info mt-3">
-                    <div class="product-name">
-                        <h3> Buns</h3>
-                        
-                    </div>
-                    <div><span>Minimum Order 80 pieces</span></div>
-                    <div class="product-price">£<span>40</span></div>
-                </div>
-                <div class="cart-btn">
-                    <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                        Add to Cart</button>
+.product-box img{
+box-shadow: 0 33px  61px -29px rgba(0 0 0 /26%);
+height:250px;
+width: 350px;
+object-fit: cover;
+border-radius: 12px;
+}
+.product-box:hover{
+ transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 
-                </div>
-                
-            
-            </div>
-            
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-4 mb-3 mt-5">
-                    <div class="product-box position-relative">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWIISUGsR9TMbrovCokLmXR024tBUhxnZAx0zms-Py0fIiPlH8wZKM0353_Tv2zc1SgfxFKS5IjOMDeQ5GqX7mWzfA4ym2V_pZxO18e6u565MzoZA6orVytNdm7qjlc3FiCu9MIM7ECqlBonz4jj_r3odBfN8PD_6iP7Pq62EMfDEQWk3XEZPtxYc89F2a/s320/4.jpg" alt="Puff Puff" class="img-fluid">
-                    </div>
-                 
-                    <div class="product-info mt-3">
-                        <div class="product-name">
-                            <h3>Spring Rolls </h3>
-                        </div>
-                        <div><span>Minimum Order 20 pieces</span></div>
-                        <div class="product-price"> £<span>1.50 per piece</span></div>
-                    </div>
-                    <div class="cart-btn">
-                        <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                            Add to Cart</button>
-                    </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 mb-3 mt-5">
-                    <div class="product-box position-relative">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2iETQrFyyfpp0w_kpOBYPWap5w8Mh98Lhb87uwADSLpzkQUmx8VnrGVZDURvb3PP-BoWrT94N2gZD0WNlDBDOpSBuTv1UmmgHP6zjuVH3aFM8ap5uZAsgTxja5RHYqRpZIsvuOWr0Vnb7A0EDKeqPjWNaGc3CeF2ISIUw-W2oPEIt2ZGVyrSP5zwkHm9v/s320/5.jpg" alt="Puff Puff" class="img-fluid">
-                    </div>
-                 
-                    <div class="product-info mt-3">
-                        <div class="product-name">
-                            <h3> Chin Chin </h3>
-                        </div>
-                        <div><span>Minimum Order 4 litres</span></div>
-                        <div class="product-price">£<span>20</span></div>
-                    </div>
-                    <div class="cart-btn">
-                        <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                            Add to Cart</button>
-                    </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 mb-3 mt-5">
-                        <div class="product-box position-relative">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguUrlP2WOVUDONFYhSu2CjVH0ZFCVz8m4gIn3r09DDtIwuX2tkgoWwAe6AGTt28NAFwf1TD24FpSBLi_z8yTffWZO7-0l1uG6IjVRY_X06EORKsjpinMy2dTEcc7QNvhyphenhyphenpEoZ6ltFHE5Ioy3FfVhIJB_Ipw1-rwXV22BtWJ3VhCxIw-ZqeSoQ-v-G823S5/s320/Untitled%20design.jpg" alt="Puff Puff" class="img-fluid">
-                        </div>
-                     
-                        <div class="product-info mt-3">
-                            <div class="product-name">
-                                <h3> Fruits Platter </h3>
-                            </div>
-                            <div><span>A large tray with max of 6 choice of fruits</span></div>
-                            <div class="product-price"> £<span>50</span></div>
-                        </div>
-                        <div class="cart-btn">
-                            <button class="btn btn-secondary shadow-sm rounded-pill add-cart"><i class="fa-solid fa-cart-plus"></i> 
-                                Add to Cart</button>
-                        </div>
-                        </div>
-                    </div>
-        </div>
-    
-        
-    <!-- Call and email Section Start -->  
-     <div class="container mt-5 text-center" id="contact">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2>Call to Order: </h2>
-                <h5>+44 7485 276057</h5>
-            </div>
-            <div class="col-lg-6">
-                <h2>Email to Order: </h2>
-                <h5>maajoskitchen@outlook.com</h5>
-            </div>
-        </div>
-     </div>
-     <!-- Call and email Section end -->  
-
-        <!-- Featurs Section Start -->
-        <div class="container-fluid featurs py-3">
-            <div class="container py-3">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-car-side fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>Free Delivery</h5>
-                                <p class="mb-0"> Within Aldershot £50 +</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-user-shield fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>Secure Payment</h5>
-                                <p class="mb-0">100% security payment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-exchange-alt fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>30 Day Return</h5>
-                                <p class="mb-0">30 day money guarantee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fa fa-phone-alt fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>24/7 Support</h5>
-                                <p class="mb-0">Support every time fast</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Featurs Section End -->
-<!--Footer start-->
-<div class="container mt-5 py-2 fs-4 align-items-center bg-dark my-3">
-<div class="row mx-5">
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Home</a>
-    </div>
-
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Order</a>
-    </div>
-    
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Our Shop</a>
-    </div>
-
-    
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Testimonial</a>
-    </div>
-
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Policy</a>
-    </div>
-
-    <div class="col-lg-2 col-md-3">
-        <a href="#">Contact</a>
-    </div>
-
-</div>
-</div>
-<!--Footer end-->
-
+.cart-btn{
+    position: absolute;
+    text-align:center;
+    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
        
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+}
+.sc-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sc-container img{
+    width: 200px;
+    margin: 2rem 0;
+}
+.sc-container h1{
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+.sc-container p{
+    font-size: 0.970rem;
+    max-width: 600px;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+.sc-btn{
+   text-decoration: none;
+   color: var(--text-primary);
+   background: var(--btn-secondary);
+}
+@media (min-width: 992px) {
+    .hero-header,
+    .page-header {
+        margin-top: 152px !important;
+    }
+}
 
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+@media (max-width: 992px) {
+    .hero-header,
+    .page-header {
+        margin-top: 97px !important;
+    }
+}
+/*** Hero Header end ***/
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    </body>
 
-</html>
+/*** featurs Start ***/
+.featurs .featurs-item .featurs-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.featurs .featurs-item .featurs-icon::after {
+    content: "";
+    width: 35px;
+    height: 35px;
+    background: var(--bs-secondary);
+    position: absolute;
+    bottom: -10px;
+    transform: translate(-50%);
+    transform: rotate(45deg);
+    background: var(--bs-secondary);
+    
+}
+/*** featurs End ***/
+
+
+/*** service Start ***/
+.service .service-item .service-content {
+    position: relative;
+    width: 250px; 
+    height: 130px; 
+    top: -50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/*** service End ***/
+
+
+/*** Fruits Start ***/
+.fruite .tab-class .nav-item a.active {
+    background: var(--bs-secondary) !important;
+}
+
+.fruite .tab-class .nav-item a.active span {
+    color: var(--bs-white) !important; 
+}
+
+.fruite .fruite-categorie .fruite-name {
+    line-height: 40px;
+}
+
+.fruite .fruite-categorie .fruite-name a {
+    transition: 0.5s;
+}
+
+.fruite .fruite-categorie .fruite-name a:hover {
+    color: var(--bs-secondary);
+}
+
+.fruite .fruite-item {
+    height: 100%;
+    transition: 0.5s;
+}
+.fruite .fruite-item:hover {
+    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+}
+
+.fruite .fruite-item .fruite-img {
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 10px 10px 0 0;
+}
+
+.fruite .fruite-item .fruite-img img {
+    transition: 0.5s;
+}
+
+.fruite .fruite-item .fruite-img img:hover {
+    transform: scale(1.3);
+}
+/*** Fruits End ***/
+
+
+/*** vesitable Start ***/
+.vesitable .vesitable-item {
+    height: 100%;
+    transition: 0.5s;
+}
+
+.vesitable .vesitable-item:hover {
+    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+}
+
+.vesitable .vesitable-item .vesitable-img {
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 10px 10px 0 0;
+}
+
+.vesitable .vesitable-item .vesitable-img img {
+    transition: 0.5s;
+}
+
+.vesitable .vesitable-item .vesitable-img img:hover {
+    transform: scale(1.2);
+}
+
+.vesitable .owl-stage {
+    margin: 50px 0;
+    position: relative;
+}
+
+.vesitable .owl-nav .owl-prev {
+    position: absolute;
+    top: -8px;
+    right: 0;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+
+}
+
+.vesitable .owl-nav .owl-prev:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+
+.vesitable .owl-nav .owl-next {
+    position: absolute;
+    top: -8px;
+    right: 88px;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.vesitable .owl-nav .owl-next:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+/*** vesitable End ***/
+
+
+/*** Banner Section Start ***/
+.banner .banner-btn:hover {
+    background: var(--bs-primary);
+}
+/*** Banner Section End ***/
+
+
+/*** Facts Start ***/
+.counter {
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.counter i {
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+.counter h4 {
+    color: var(--bs-primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.counter h1 {
+    margin-bottom: 0;
+}
+/*** Facts End ***/
+
+
+/*** testimonial Start ***/
+.testimonial .owl-nav .owl-prev {
+    position: absolute;
+    top: -58px;
+    right: 0;
+    color: var(--bs-primary);
+    padding: 5px 25px;
+    border: 1px solid var(--bs-secondary);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.testimonial .owl-nav .owl-prev:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+
+#cart-icon[data-quantity]:not([data-quantity="0"])::after {
+    content: attr(data-quantity);
+    position: absolute;
+    top: -8px; /* Adjust positioning */
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: var(--bs-secondary);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    color: white; /* Ensures visibility */
+}
+
+/*Cart*/
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 220px;
+    min-height: 80vh;
+    padding: 10px;
+    color: var(--bs-primary);
+    box-shadow: -2px 0 4px hsl(0, 4%, 15% / 10%);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: grey;
+}
+.cart.active{
+    right: 30px;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.cart-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-top: 2rem;
+}
+.cart-content{
+    font-size: 1.0rem;
+
+   
+}
+.total{
+    display: flex;
+    justify-content:center;
+    margin-top: 0.1rem;
+}
+.total-title{
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-top: 0.8rem;
+}
+.total-price{
+    font-size: 1.075rem;
+    margin: 1rem 0 0  0.7rem;
+    
+}
+.btn-buy{
+    display: flex;
+    justify-content: center;
+    margin: 0rem auto 0 auto;
+    padding: 2px 3px;
+    width: 50%;
+    text-align: center;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 250;
+    cursor: pointer; 
+    background: var(--bs-secondary);
+}
+#close-cart{
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.cart-box{
+    display: grid;
+    grid-template-columns: 49% 40% 11%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+} 
+.cart-img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+}
+.detail-box{
+    display: grid;
+    row-gap: 0.5rem;
+}
+.cart-quantity{
+    border: 1px solid var(--bs-primary);
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cart-remove{
+    font-size: 10px;
+    cursor: pointer;
+    width: 75px;
+    height:30px;
+    border: 1px solid var(--bs-primary);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+}
+.cart-product-title{
+    margin-bottom: 5px;
+}
+.add-cart:hover{
+    background-color: var(--bs-primary );
+
+}
+
+.testimonial .owl-nav .owl-next:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-white);
+}
+/*** testimonial End ***/
+
+
+/*** Single Page Start ***/
+.pagination {
+    display: inline-block;
+}
+  
+.pagination a {
+    color: var(--bs-dark);
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: 0.5s;
+    border: 1px solid var(--bs-secondary);
+    margin: 0 4px;
+}
+  
+.pagination a.active {
+    background-color: var(--bs-primary);
+    color: var(--bs-light);
+    border: 1px solid var(--bs-secondary);
+}
+  
+.pagination a:hover:not(.active) {background-color: var(--bs-primary)}
+
+.nav.nav-tabs .nav-link.active {
+    border-bottom: 2px solid var(--bs-secondary) !important;
+}
+/*** Single Page End ***/
+
+
+/*** Footer Start ***/
+.footer .footer-item .btn-link {
+    line-height: 35px;
+    color: rgba(255, 255, 255, .5);
+    transition: 0.5s;
+}
+
+.footer .footer-item .btn-link:hover {
+    color: var(--bs-secondary) !important;
+}
+
+.footer .footer-item p.mb-4 {
+    line-height: 35px;
+}
+/*** Footer End ***/
+
